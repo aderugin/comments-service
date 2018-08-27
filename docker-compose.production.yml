@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+    django:
+        build:
+            args:
+                - ENV=production
+        environment:
+            - ENV=production
+        command: gunicorn -c gunicorn_config.py comments.wsgi
+        restart: always
+
+    celeryw:
+        build:
+            args:
+                - ENV=production
+        environment:
+            - ENV=production
+        restart: always
+
+    postgres:
+        restart: always
