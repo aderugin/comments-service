@@ -107,7 +107,7 @@ class CommentListAsFileView(APIView):
     @staticmethod
     def _normalize_date(value):
         try:
-            datetime.strptime(value, '%d-%m-%Y')
+            return datetime.strptime(value, '%d-%m-%Y')
         except (ValueError, TypeError):
             return None
 
